@@ -16,16 +16,18 @@ with Connection.open_serial_port("COM5", 9600) as connection:
 
     if device_list:
         device = device_list[0]
-        device.settings.set(BinarySettings.TARGET_SPEED, 10000)
+        #device.move_absolute(950000)
+
+        device.settings.set(BinarySettings.TARGET_SPEED, 20000)
         i = 0
-        while i<5:   
+        while i<100:   
             #device.move_velocity(10000)
             if (i%2==1):
-                device.move_relative(-20000)
-                time.sleep(2)
+                device.move_relative(-40000)
+                time.sleep(1)
             else:
-                device.move_relative(20000)
-                time.sleep(2)
+                device.move_relative(40000)
+                time.sleep(1)
             
             i+=1
 
